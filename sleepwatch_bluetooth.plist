@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>killBluetooth on sleep</string>
+	<string>killBluetooth_on_sleep</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/usr/local/sbin/sleepwatcher</string>
+		<string>/opt/local/sbin/sleepwatcher</string>
 		<string>-V</string>
 		<string>-s ~/.sleepscripts/disable_bluetooth.sh</string>
 		<string>-w ~/.sleepscripts/enable_bluetooth.sh</string>

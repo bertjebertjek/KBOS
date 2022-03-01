@@ -65,29 +65,45 @@ echo "***************************"
 echo "Checking for prerequisites"
 echo "***************************"
 
-if [[ $(which brew) == "" ]]; then
-    echo "Could not find Hombrew, It's required to install Blueutil. Check it out https://brew.sh/"
-    exit 1
-else
-    echo "** Homebrew OK"
-fi
+# if [[ $(which brew) == "" ]]; then
+#     echo "Could not find Hombrew, It's required to install Blueutil. Check it out https://brew.sh/"
+#     exit 1
+# else
+#     echo "** Homebrew OK"
+# fi
 
-# Check for blueutil
-if [[ $(brew ls --versions blueutil) == "" ]]; then
+# # Check for blueutil
+# if [[ $(brew ls --versions blueutil) == "" ]]; then
+#     echo "Could not find blueutil, Installing ..."
+#     brew install blueutil || exit 1
+# else
+#     echo "** Blueutil OK"
+# fi
+if [[$(port list blueutil)== ""]]; then
     echo "Could not find blueutil, Installing ..."
-    brew install blueutil || exit 1
+    ports install blueutil || exit 1
 else
     echo "** Blueutil OK"
+    echo $(port list blueutil)" found"
 fi
+    
 
-# Check for sleepwatcher
-if [[ $(brew ls --versions sleepwatcher) == "" ]]; then
+# # Check for sleepwatcher
+# if [[ $(brew ls --versions sleepwatcher) == "" ]]; then
+#     echo "Could not find sleepwatcher, Installing ..."
+#     brew install sleepwatcher || exit 1
+#     brew services start sleepwatcher || exit 1
+# else
+#     echo "** sleepwatcher OK"
+# fi
+if [[$(port list sleepwatcher)== ""]]; then
     echo "Could not find sleepwatcher, Installing ..."
-    brew install sleepwatcher || exit 1
-    brew services start sleepwatcher || exit 1
+    ports install sleepwatcher || exit 1
 else
     echo "** sleepwatcher OK"
+    echo $(port list sleepwatcher)" found"
 fi
+
 
 echo " "
 echo "***********************" 
